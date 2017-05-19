@@ -1,7 +1,7 @@
 import React from 'react';
 import store from '../store.js';
 import Lyrics from '../components/Lyrics';
-import {setLyrics} from '../action-creators/lyrics';
+import {setLyrics, fetchLyrics} from '../action-creators/lyrics';
 import axios from 'axios';
 
 
@@ -39,12 +39,16 @@ export default class LyricsContainer extends React.Component{
   }
 
   handleSubmit(){
-    axios.get(`/api/lyrics/${this.state.artistQuery}/${this.state.songQuery}`)
-      .then((lyric)=>{return setLyrics(lyric.data.lyric)})
-      .then((lyricActionObject)=>{
-        console.log('lyricActionObject:',lyricActionObject)
-        store.dispatch(lyricActionObject)
-      })
+    if (this.state.artistQuery && this.state.songQuery) {
+    store.dispatch(fetchLyrics(this.state.artistQuery, this.state.songQuery));
+  }
+
+        // axios.get(`/api/lyrics/${this.state.artistQuery}/${this.state.songQuery}`)
+    //   .then((lyric)=>{return setLyrics(lyric.data.lyric)})
+    //   .then((lyricActionObject)=>{
+    //     // console.log('lyricActionObject:',lyricActionObject)
+    //     store.dispatch(lyricActionObject)
+    //   })
       // .catch(console.error("There was an error in this ajax request"))
       // why did we see error if this ajax call works???
   }

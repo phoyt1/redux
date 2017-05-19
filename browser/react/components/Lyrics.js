@@ -29,7 +29,7 @@ const Lyrics = (props) => {
         className='form-control'
         placeholder="Enter song name"
       />
-      <pre>{lyrics}</pre>
+      <pre>{lyrics.lyrics}</pre>
       <button>Submit</button>
     </form>
   )
