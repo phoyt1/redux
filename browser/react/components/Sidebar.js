@@ -39,6 +39,14 @@ const Sidebar = (props) => {
           })
         }
       </ul>
+      <section>
+        <h4 className="text-muted">LYRICS</h4>
+        <h4>
+          <Link className="btn btn-primary btn-block" to="/lyrics">
+            <span className="glyphicon glyphicon-plus"></span> LYRICS
+          </Link>
+        </h4>
+      </section>
     </sidebar>
   );
 }

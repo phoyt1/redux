@@ -1,9 +1,9 @@
-import constants from '../constants';
+import {SET_LYRICS} from '../constants';
 
 export const setLyrics = (text) => {
   return {
-    type: constants.SET_LYRICS,
-    lyric: text
+    type: SET_LYRICS,
+    lyrics: text
   }
 
 }
